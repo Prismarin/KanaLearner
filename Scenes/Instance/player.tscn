@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://drlrysu0b2p0j"]
+
+[ext_resource type="Texture2D" uid="uid://cau1475vl1reg" path="res://Assets/Graphics/tilemap_packed.png" id="1_5ho1u"]
+[ext_resource type="Script" uid="uid://c0p5fcd7i16sc" path="res://Scenes/Instance/player.gd" id="2_yrjwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1mnf"]
+atlas = ExtResource("1_5ho1u")
+region = Rect2(16, 112, 16, 16)
+
+[node name="Player" type="Sprite2D" unique_id=35489094]
+texture = SubResource("AtlasTexture_i1mnf")
+script = ExtResource("2_yrjwi")

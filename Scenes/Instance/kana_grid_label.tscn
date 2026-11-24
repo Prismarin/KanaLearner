@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://db1cvdnwb14jd"]
+
+[ext_resource type="Script" uid="uid://bf4oq8kjlj3bi" path="res://Scenes/Instance/kana_grid_label.gd" id="1_npva7"]
+
+[node name="KanaGridLabel" type="Label" unique_id=1245240139]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_npva7")
