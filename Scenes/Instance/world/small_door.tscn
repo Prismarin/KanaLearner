@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dyxa44pfoq6nb"]
+
+[ext_resource type="Texture2D" uid="uid://cau1475vl1reg" path="res://Assets/Graphics/tilemap_packed.png" id="1_qsw0p"]
+[ext_resource type="Script" uid="uid://7es1kr2lttnb" path="res://Scenes/Instance/world/small_door.gd" id="2_7b5sk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b5sk"]
+atlas = ExtResource("1_qsw0p")
+region = Rect2(144, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4y3o"]
+atlas = ExtResource("1_qsw0p")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ea2a"]
+atlas = ExtResource("1_qsw0p")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1mnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b5sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4y3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ea2a")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SmallDoor" type="AnimatedSprite2D" unique_id=1617198230]
+sprite_frames = SubResource("SpriteFrames_i1mnf")
+script = ExtResource("2_7b5sk")

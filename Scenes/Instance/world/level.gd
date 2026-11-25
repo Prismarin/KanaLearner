@@ -46,13 +46,31 @@ func calculate_enemy_blocks() -> void:
 	
 	var enemies: Node2D = $Enemies
 	for node: Node in enemies.get_children():
-		if not node is Node:
+		if not node is Enemy:
 			continue
 		
 		var enemy: Enemy = node as Enemy
+		if enemy.hp < 1:
+			continue
+		
 		var enemy_cell := pos_to_cell(enemy.global_position)
 		
 		enemy_block_map.set_cell(enemy_cell + Vector2i.UP, 0, Vector2i(1, 5))
 		enemy_block_map.set_cell(enemy_cell + Vector2i.DOWN, 0, Vector2i(1, 5))
 		enemy_block_map.set_cell(enemy_cell + Vector2i.LEFT, 0, Vector2i(1, 5))
 		enemy_block_map.set_cell(enemy_cell + Vector2i.RIGHT, 0, Vector2i(1, 5))
+
+
+func get_close_enemy(glob_pos: Vector2) -> Enemy:
+	var enemies: Node2D = $Enemies
+	for node: Node in enemies.get_children():
+		if not node is Enemy:
+			continue
+		
+		var enemy: Enemy = node as Enemy
+		var enemy_cell := pos_to_cell(enemy.global_position)
+		var pos_cell := pos_to_cell(glob_pos)
+		if int(enemy_cell.distance_to(pos_cell)) == 1:
+			return enemy
+	
+	return null

@@ -1,9 +1,13 @@
-extends Sprite2D
+class_name Player extends Sprite2D
 
+
+@export var hp: int = 5
+@export var attack: int = 1
 
 var level: Level
+var is_fighting: bool = false
 
-const fight_scene = preload("res://Scenes/Instance/fight.tscn")
+const fight_scene = preload("res://Scenes/Instance/fight/fight.tscn")
 
 
 func _ready() -> void:
@@ -23,6 +27,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func move() -> void:
+	if is_fighting:
+		return
+	
 	var input: Vector2i = Vector2i.ZERO
 	if Input.is_action_just_pressed("MOVE_UP"):
 		input += Vector2i.UP
@@ -51,5 +58,18 @@ func move() -> void:
 
 
 func enter_fight() -> void:
+	is_fighting = true
 	var fight = fight_scene.instantiate()
 	add_child(fight)
+	var manager: FightManager = fight.get_child(0)
+	manager.player = self
+	manager.enemy = level.get_close_enemy(global_position)
+	manager.fight_end.connect(on_fight_over)
+
+
+func on_fight_over() -> void:
+	is_fighting = false
+	if hp < 1:
+		print("died.")
+	else:
+		level.calculate_enemy_blocks()

@@ -14,6 +14,10 @@ config/name="KanaLearner"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ReadingData="*uid://ccfxtguq4prjs"
+
 [display]
 
 window/size/viewport_width=640

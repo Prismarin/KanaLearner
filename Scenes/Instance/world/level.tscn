@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dcxmqn61dmgfr"]
 
 [ext_resource type="TileSet" uid="uid://dwu5uqovdpyv6" path="res://Assets/floor.tres" id="1_hc8mx"]
-[ext_resource type="Script" uid="uid://drjw1q45b67j8" path="res://Scenes/Instance/level.gd" id="1_mmp3i"]
+[ext_resource type="Script" uid="uid://drjw1q45b67j8" path="res://Scenes/Instance/world/level.gd" id="1_mmp3i"]
 [ext_resource type="TileSet" uid="uid://dd5spvebtfun2" path="res://Assets/walls.tres" id="2_i0a5n"]
-[ext_resource type="PackedScene" uid="uid://drlrysu0b2p0j" path="res://Scenes/Instance/player.tscn" id="3_i0a5n"]
+[ext_resource type="PackedScene" uid="uid://drlrysu0b2p0j" path="res://Scenes/Instance/world/player.tscn" id="3_i0a5n"]
 [ext_resource type="Texture2D" uid="uid://cau1475vl1reg" path="res://Assets/Graphics/tilemap_packed.png" id="4_cjwhn"]
-[ext_resource type="PackedScene" uid="uid://b1mbujo3oqe1c" path="res://Scenes/Instance/enemy.tscn" id="5_oht3e"]
+[ext_resource type="PackedScene" uid="uid://b1mbujo3oqe1c" path="res://Scenes/Instance/world/enemy.tscn" id="5_oht3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxggw"]
 texture = ExtResource("4_cjwhn")
@@ -42,6 +42,7 @@ position = Vector2(72, 120)
 
 [node name="Enemy3" parent="Enemies" unique_id=925788067 instance=ExtResource("5_oht3e")]
 position = Vector2(35, 71)
+hp = 7
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1899723529]
 position = Vector2(160, 90)
